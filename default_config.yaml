@@ -1,0 +1,24 @@
+use_gae : True
+num_steps : 2048
+ppo_epochs : 5
+tanh_squash : True
+policy_lr : 0.0001
+policy_logstd_init : 0   # use -1 for the Ant env. (due to the large action-space)
+ppo_clip_param : 0.2
+entropy_coef : 0
+value_loss_coef : 0.5
+max_grad_norm : 0.5
+num_mini_batch : 32
+gamma : 0.99
+gae_lambda : 0.95
+num_env_steps : 5000000
+num_pqs : 1 
+pq_capacity : 5
+pq_refresh_rate : 5
+num_expert_trajs : 1
+airl_grad_steps : 5
+wcritic_grad_steps : 20
+expert_batch_size : 500
+use_proper_time_limits : True
+cuda : False
+log_interval : 1
