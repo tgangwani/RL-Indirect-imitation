@@ -24,7 +24,7 @@ class Wcritic(nn.Module):
 
     def update(self, niter, expert_gen, pq_buffer, batch_size, num_grad_steps):
         """
-        Perform multiple updates of the wasserstein  classifier using pq-replay and expert data
+        Perform multiple updates of the wasserstein classifier using pq-buffer and expert data
         """
         self.train()
         pqb_gen = pq_buffer.data_gen_infinite(min(batch_size, len(pq_buffer)))

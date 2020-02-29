@@ -62,7 +62,7 @@ class PriorityBuffer():
         # Create a priority queue entry
         pqe = BufferEntry(traj['score'], len(traj['states']), uid)
 
-        # if at capacity, check if the reward for this traj is greater than the min in the replay currently
+        # if at capacity, check if the reward for this traj is greater than the min in the buffer currently
         if len(self.traj_info) == self.capacity:
             min_pqe, *_ = self.heap_list[0]
             if pqe > min_pqe:
@@ -72,7 +72,7 @@ class PriorityBuffer():
             else:
                 return
 
-        # success, add to replay
+        # success, add to buffer
         #print('Traj w/ rew:{:.2f}, len:{} added!'.format(pqe.r, pqe.l))
         full_entry = [pqe, uid, deepcopy(traj)]  # deepcopy since we delete the traj outside this fn call
         self.traj_info[uid] = full_entry
